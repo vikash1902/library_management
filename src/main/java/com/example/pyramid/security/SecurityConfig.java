@@ -50,7 +50,7 @@ public class SecurityConfig  implements WebMvcConfigurer {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Apply the CORS configuration
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for simplicity
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/oauth2/**", "/error", "/colors/**", "/public/**").permitAll() // Public endpoints
+                        .requestMatchers("/", "/oauth2/**", "/error", "/colors/**", "/public/**","/docs/**").permitAll() // Public endpoints
                         .requestMatchers("/private/**").authenticated() // Restricted endpoints
                         .anyRequest().authenticated() // All other endpoints require authentication
                 )

@@ -11,9 +11,9 @@ public class PaginationData {
 
     @NotNull(message = "Page number cannot be null.")
     @Min(value = 0, message = "Page number cannot be negative.")
-    private Integer pageNumber;
+    private int pageNumber;
 
     @NotNull(message = "Page size cannot be null.")
     @Min(value = 1, message = "Number of records per page must be at least 1.")
-    private Integer size;
+    private int size;
 }
