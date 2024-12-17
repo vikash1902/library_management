@@ -1,7 +1,6 @@
 package com.example.pyramid.config;
 
-import com.example.pyramid.model.ResponseErrorMessage;
-import com.example.pyramid.utility.ErrorCodeClass;
+import com.example.pyramid.model.ValidationErrorMessage;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,15 +25,24 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public ResponseEntity<?> handleValidationException(MethodArgumentNotValidException ex) {
-        return new ResponseEntity<>(new ResponseErrorMessage("Data validation failed",
-                ErrorCodeClass.Bad_Request, getErrorList(ex.getBindingResult())), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new ValidationErrorMessage(getErrorList(ex.getBindingResult())), HttpStatus.BAD_REQUEST);
     }
+
+
+    @ExceptionHandler(CustomException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public ResponseEntity<?> customExceptionHandler(CustomException ex) {
+        Map<String,String> errorMessage = new HashMap<>();
+        errorMessage.put("message",ex.getMessage());
+        return new ResponseEntity<>(errorMessage, ex.getHttpStatus());
+    }
+
 
     public List<Map<String, String>> getErrorList(BindingResult bindingResult) {
         List<Map<String, String>> hashList = new ArrayList<>();
         bindingResult.getAllErrors().forEach((error) -> {
             Map<String, String> errors = new HashMap<>();
-
             if (error instanceof FieldError fieldError) {
                 System.err.println("fieldError.getField()---> " + fieldError.getField()
                         + "  error.getDefaultMessage() --> " + error.getDefaultMessage());

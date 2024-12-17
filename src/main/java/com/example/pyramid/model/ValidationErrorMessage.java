@@ -8,9 +8,6 @@ import java.util.Map;
 
 @Data
 @AllArgsConstructor
-public class ResponseErrorMessage {
-
-    private String status;
-    private int  errorCode;
+public class ValidationErrorMessage {
     private List<Map<String,String>> errorDetails;
 }

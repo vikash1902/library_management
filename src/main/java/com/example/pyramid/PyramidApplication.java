@@ -34,7 +34,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 		)
 )
 @SecurityScheme(
-		name = "Bearer Authentication",
+		name = "bearerAuth",
 		type = SecuritySchemeType.HTTP,
 		bearerFormat = "JWT",
 		scheme = "Bearer"
