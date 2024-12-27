@@ -19,24 +19,7 @@ CREATE TABLE IF NOT EXISTS public.book_master
     CONSTRAINT book_master_total_copies_check CHECK (total_copies >= 0),
     CONSTRAINT book_master_available_copies_check CHECK (available_copies >= 0),
     CONSTRAINT chk_copies CHECK (available_copies <= total_copies)
-)
-
-
-CREATE TABLE IF NOT EXISTS public.role_details
-(
-    role_id integer NOT NULL,
-    role_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT role_details_pkey PRIMARY KEY (role_id)
-)
-
-CREATE TABLE IF NOT EXISTS public.user_details
-(
-    user_id character varying(150) COLLATE pg_catalog."default" NOT NULL,
-    user_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    user_role integer DEFAULT 0,
-    CONSTRAINT user_details_pkey PRIMARY KEY (user_id)
-)
-
+);
 
 INSERT INTO public.book_master VALUES ('B1', 'The Guide - Edition 1', 'R.K. Narayan', 'Fiction', 'Indian Thought Publications', '6071', 'English', 6, 6, 'Shelf-B1', false, NULL, '2024-12-16 10:34:22.447778', '2024-12-16 10:34:32.319937');
 INSERT INTO public.book_master VALUES ('B2', 'Godaan - Edition 1', 'Premchand', 'Fiction', 'Saraswati Press', '4382', 'Hindi', 4, 4, 'Shelf-B1', false, NULL, '2024-12-16 10:34:22.447778', '2024-12-16 10:34:32.319937');
@@ -1238,10 +1221,3 @@ INSERT INTO public.book_master VALUES ('B1197', 'Madhushala - Edition 200', 'Har
 INSERT INTO public.book_master VALUES ('B1198', 'The White Tiger - Edition 200', 'Aravind Adiga', 'Fiction', 'HarperCollins', '8678', 'English', 6, 6, 'Shelf-S0', false, NULL, '2024-12-16 10:34:22.447778', '2024-12-16 10:34:32.319937');
 INSERT INTO public.book_master VALUES ('B1199', 'Rashmirathi - Edition 200', 'Ramdhari Singh Dinkar', 'Epic Poetry', 'Lokbharti Prakashan', '3639', 'Hindi', 7, 7, 'Shelf-S0', false, NULL, '2024-12-16 10:34:22.447778', '2024-12-16 10:34:32.319937');
 INSERT INTO public.book_master VALUES ('B1200', 'Midnight''s Children - Edition 200', 'Salman Rushdie', 'Historical Fiction', 'Vintage', '907', 'English', 8, 8, 'Shelf-S0', false, NULL, '2024-12-16 10:34:22.447778', '2024-12-16 10:34:32.319937');
-
-
-INSERT INTO public.role_details VALUES (0, 'PUBLIC');
-INSERT INTO public.role_details VALUES (1, 'ADMIN');
-
-INSERT INTO public.user_details VALUES ('pallavi9aug@gmail.com', 'Pallavi Verma', 0);
-INSERT INTO public.user_details VALUES ('vikashmishra.m11@gmail.com', 'Vikash Kumar Mishra', 0);
