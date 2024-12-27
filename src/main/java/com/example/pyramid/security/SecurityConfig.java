@@ -62,6 +62,7 @@ public class SecurityConfig  implements WebMvcConfigurer {
                             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                             response.setContentType("application/json;charset=UTF-8");
                             response.setCharacterEncoding("UTF-8");
+                            response.setHeader("WWW-Authenticate", "");
                             Map<String,String> responseErrorMessage =  new HashMap<>();
                             responseErrorMessage.put("message",authException.getMessage());
                             response.getWriter().write(new ObjectMapper().writeValueAsString(responseErrorMessage));
