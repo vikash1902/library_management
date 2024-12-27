@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.6</version>
+		<version>3.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -24,13 +24,14 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring Boot Starter for Web Applications -->
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>3.4.0</version>
+			<version>3.4.1</version>
 		</dependency>
+
 
 		<!-- Spring Security -->
 		<dependency>
@@ -47,12 +48,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
-		<!-- Tomcat as a Provided Dependency for WAR Deployment -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
+
 
 		<!-- Jakarta Servlet API -->
 		<dependency>
@@ -79,9 +80,8 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.7.4</version>
+			<version>42.7.2</version> <!-- Ensure the version is up to date -->
 		</dependency>
-
 
 
 		<dependency>
