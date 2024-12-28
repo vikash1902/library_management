@@ -49,7 +49,7 @@ public class SecurityConfig  implements WebMvcConfigurer {
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for simplicity
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/oauth2/**", "/error", "/colors/**", "/public/**","/docs/**").permitAll() // Public endpoints
-                        .requestMatchers("/private/**").authenticated() // Restricted endpoints
+                        .requestMatchers("/private/**","/api/**").authenticated() // Restricted endpoints
                         .anyRequest().authenticated() // All other endpoints require authentication
                 )
                 .oauth2Login(Customizer.withDefaults()) // Enable OAuth2 login

@@ -44,7 +44,7 @@ public class BookController {
     }
 
     @PreAuthorize("hasRole('PUBLIC')")
-    @GetMapping("/records")
+    @PostMapping("/records")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<Page<Books>> fetchBooks(@Valid @RequestBody PaginationData paginationData){
 //        throw  new CustomException("You are not allowed to divide a number with 0.", HttpStatus.INTERNAL_SERVER_ERROR);
